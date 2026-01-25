@@ -1,21 +1,18 @@
 body {
-    font-family: Arial;
-    background-color: #f2f2f2;
-    text-align: center;
+font-family: Arial;
+background-color: #f2f2f2;
+text-align: center;
 }
-
 h2 {
-    color: darkblue;
+color: darkblue;
 }
-
 select {
-    padding: 5px;
-    font-size: 16px;
+padding: 5px;
+font-size: 16px;
 }
-
 #result {
-    margin-top: 20px;
-    color: darkgreen;
-    font-size: 20px;
-    font-weight: bold;
+margin-top: 20px;
+color: darkgreen;
+font-size: 20px;
+font-weight: bold;
 }

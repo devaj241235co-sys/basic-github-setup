@@ -27,22 +27,31 @@
 </div>
 </div>
 </div>
-<script>
-function showMonument(city) {
-var monument = "";
-if (city == "Delhi")
-monument = "Red Fort";
-else if (city == "Agra")
-monument = "Taj Mahal";
-<img src = "https://www.istockphoto.com/photos/taj-mahal-night"></img>
-else if (city == "Mumbai")
-monument = "Gateway of India";
-else if (city == "Jaipur")
-monument = "Hawa Mahal";
-else if (city == "Hyderabad")
-monument = "Charminar";
-document.getElementById("result").innerHTML = monument;
+<script>function showMonument(city) {
+var result = "";
+if (city == "Delhi") {
+result = "Red Fort";
+}
+else if (city == "Agra") {
+result = `
+<h4>Taj Mahal</h4>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg" 
+class="img-fluid mt-2" 
+alt="Taj Mahal">
+;
+}
+else if (city == "Mumbai") {
+result = "Gateway of India";
+}
+else if (city == "Jaipur") {
+result = "Hawa Mahal";
+}
+else if (city == "Hyderabad") {
+result = "Charminar";
+}
+document.getElementById("result").innerHTML = result;
 }
 </script>
 </body>
 </html>
+

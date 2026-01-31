@@ -8,21 +8,41 @@
 <form onsubmit="return validateForm()">
 Name: <input type="text" id="name"><br><br>
 Email: <input type="text" id="email"><br><br>
+Password: <input type="password" id="password"><br><br>
 <button type="submit">Submit</button>
 </form>
 <p id="formMsg"></p>
 <script>
 function validateForm() {
-var name = document.getElementById("name").value;
-var email = document.getElementById("email").value;
-if (name == "" || email == "") {
-document.getElementById("formMsg").innerHTML =
-"All fields are required";
+var name = document.getElementById("name").value.trim();
+var email = document.getElementById("email").value.trim();
+var password = document.getElementById("password").value;
+var msg = document.getElementById("formMsg");
+if (name === "" || email === "" || password === "") {
+msg.innerHTML = "All fields are mandatory";
+msg.style.color = "red";
 return false;
 }
-document.getElementById("formMsg").innerHTML =
-"Form submitted successfully";
+var namePattern = /^[A-Za-z ]+$/;
+if (!namePattern.test(name)) {
+msg.innerHTML = "Name should contain only alphabets";
+msg.style.color = "red";
 return false;
+}
+var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if (!emailPattern.test(email)) {
+msg.innerHTML = "Enter a valid email address";
+msg.style.color = "red";
+return false;
+}
+if (password.length < 6) {
+msg.innerHTML = "Password must be at least 6 characters long";
+msg.style.color = "red";
+return false;
+}
+msg.innerHTML = "Form submitted successfully";
+msg.style.color = "green";
+return false;   // kept false to stop actual submission in lab
 }
 </script>
 </body>

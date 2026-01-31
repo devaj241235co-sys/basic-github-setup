@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Form Validation</title>
-<script src="script.js"></script>
 </head>
 <body>
 <h2>Form Validation using JavaScript</h2>
@@ -12,5 +11,19 @@ Email: <input type="text" id="email"><br><br>
 <button type="submit">Submit</button>
 </form>
 <p id="formMsg"></p>
+<script>
+function validateForm() {
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+if (name == "" || email == "") {
+document.getElementById("formMsg").innerHTML =
+"All fields are required";
+return false;
+}
+document.getElementById("formMsg").innerHTML =
+"Form submitted successfully";
+return false;
+}
+</script>
 </body>
 </html>

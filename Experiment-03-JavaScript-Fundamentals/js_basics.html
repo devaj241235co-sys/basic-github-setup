@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JavaScript Fundamentals</title>
+<title>Arithmetic Operations</title>
+<style>
+body {
+font-family: Arial;
+}
+input{
+margin: 5px;
+}
+button{
+margin: 5px;
+}
+#result{
+margin-top: 10px;
+padding: 5px;
+border: 2px solid black;
+width: 200px;
+}
+</style>
 </head>
 <body>
-<h2>JavaScript Fundamentals</h2>
-<h3>Arithmetic Operations</h3>
-<input type="number" id="num1">
-<input type="number" id="num2">
-<button onclick="calculate()">Calculate</button>
-<p id="arithResult"></p>
-<h3>Conditional Statement (Even / Odd)</h3>
-<input type="number" id="checkNum">
-<button onclick="checkEvenOdd()">Check</button>
-<p id="condResult"></p>
-<h3>Loop Example</h3>
-<button onclick="showNumbers()">Show Numbers</button>
-<p id="loopResult"></p>
+<h2>Arithmetic Operations using JavaScript</h2>
+Number 1:
+<input type="number" id="num1" step="any"><br>
+Number 2:
+<input type="number" id="num2" step="any"><br><br>
+<button onclick="add()">Add</button>
+<button onclick="subtract()">Subtract</button>
+<button onclick="multiply()">Multiply</button>
+<button onclick="divide()">Divide</button>
+<div id="result">Result will appear here</div>
 <script>
-function calculate() {
+function add() {
 var a = Number(document.getElementById("num1").value);
 var b = Number(document.getElementById("num2").value);
-document.getElementById("arithResult").innerHTML =
-"Add: " + (a + b) +
-" Sub: " + (a - b) +
-" Mul: " + (a * b) +
-" Div: " + (a / b);
+document.getElementById("result").innerHTML = "Addition: " + (a + b);
 }
-function checkEvenOdd() {
-var n = document.getElementById("checkNum").value;
-if (n % 2 == 0)
-document.getElementById("condResult").innerHTML = "Even Number";
-else
-document.getElementById("condResult").innerHTML = "Odd Number";
+function subtract() {
+var a = Number(document.getElementById("num1").value);
+var b = Number(document.getElementById("num2").value);
+document.getElementById("result").innerHTML = "Subtraction: " + (a - b);
 }
-function showNumbers() {
-var text = "";
-for (var i = 1; i <= 5; i++) {
-text += i + " ";
+function multiply() {
+var a = Number(document.getElementById("num1").value);
+var b = Number(document.getElementById("num2").value);
+document.getElementById("result").innerHTML = "Multiplication: " + (a * b);
 }
-document.getElementById("loopResult").innerHTML = text;
+function divide() {
+var a = Number(document.getElementById("num1").value);
+var b = Number(document.getElementById("num2").value);
+if (b == 0) {
+document.getElementById("result").innerHTML = "Division by zero is not allowed";
+} else {
+document.getElementById("result").innerHTML = "Division: " + (a / b);
+}
 }
 </script>
 </body>

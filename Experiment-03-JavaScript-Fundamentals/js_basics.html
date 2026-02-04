@@ -6,17 +6,17 @@
 body {
 font-family: Arial;
 }
-input{
+input {
 margin: 5px;
 }
-button{
+button {
 margin: 5px;
 }
-#result{
+#result {
 margin-top: 10px;
 padding: 5px;
 border: 2px solid black;
-width: 200px;
+width: 250px;
 }
 </style>
 </head>
@@ -32,28 +32,46 @@ Number 2:
 <button onclick="divide()">Divide</button>
 <div id="result">Result will appear here</div>
 <script>
+function getValues() {
+var v1 = document.getElementById("num1").value;
+var v2 = document.getElementById("num2").value;
+if (v1 === "" || v2 === "") {
+document.getElementById("result").innerHTML =
+"Please enter both numbers";
+return null;
+}
+return {
+a: Number(v1),
+b: Number(v2)
+};
+}
 function add() {
-var a = Number(document.getElementById("num1").value);
-var b = Number(document.getElementById("num2").value);
-document.getElementById("result").innerHTML = "Addition: " + (a + b);
+var values = getValues();
+if (!values) return;
+document.getElementById("result").innerHTML =
+"Addition: " + (values.a + values.b);
 }
 function subtract() {
-var a = Number(document.getElementById("num1").value);
-var b = Number(document.getElementById("num2").value);
-document.getElementById("result").innerHTML = "Subtraction: " + (a - b);
+var values = getValues();
+if (!values) return;
+document.getElementById("result").innerHTML =
+"Subtraction: " + (values.a - values.b);
 }
 function multiply() {
-var a = Number(document.getElementById("num1").value);
-var b = Number(document.getElementById("num2").value);
-document.getElementById("result").innerHTML = "Multiplication: " + (a * b);
+var values = getValues();
+if (!values) return;
+document.getElementById("result").innerHTML =
+"Multiplication: " + (values.a * values.b);
 }
 function divide() {
-var a = Number(document.getElementById("num1").value);
-var b = Number(document.getElementById("num2").value);
-if (b == 0) {
-document.getElementById("result").innerHTML = "Division by zero is not allowed";
+var values = getValues();
+if (!values) return;
+if (values.b == 0) {
+document.getElementById("result").innerHTML =
+"Division by zero is not allowed";
 } else {
-document.getElementById("result").innerHTML = "Division: " + (a / b);
+document.getElementById("result").innerHTML =
+"Division: " + (values.a / values.b);
 }
 }
 </script>

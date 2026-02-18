@@ -1,66 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DOM Manipulation and jQuery</title>    
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<style>
-body {
-font-family: Arial;
-}
-#box {
-width: 200px;
-height: 100px;
-background-color: lightblue;
-margin-top: 10px;
-padding: 10px;
-}
-#animateBox {
-width: 100px;
-height: 100px;
-background-color: orange;
-position: relative;
-margin-top: 20px;
-}
-</style>
+    <title>DOM Manipulation and jQuery</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        #animateBox {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: relative;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
+
 <h2>DOM Manipulation & jQuery Effects</h2>
+
+
 <h3>JavaScript DOM Update</h3>
+
 <p id="text">Original Text</p>
 <button onclick="changeText()">Change Text</button>
+
 <hr>
-<h3>jQuery Effects</h3>
+
+
+<h3>jQuery Visibility Effects</h3>
+
 <div id="box">This box will hide/show</div><br>
+
 <button id="hideBtn">Hide</button>
 <button id="showBtn">Show</button>
 <button id="toggleBtn">Toggle</button>
+
 <hr>
+
+
+<h3>jQuery Toggle State</h3>
+
+<p id="status">Mode: Normal</p>
+<button id="toggleMode">Toggle Mode</button>
+
+<hr>
+
+
 <h3>jQuery Animation</h3>
+
 <div id="animateBox"></div><br>
 <button id="animateBtn">Animate</button>
+
 <script>
+
+
+
 function changeText() {
-document.getElementById("text").innerHTML =
-"Text changed using JavaScript DOM";
+    document.getElementById("text").innerHTML =
+        "Text changed using JavaScript DOM";
 }
+
+
+
 $(document).ready(function(){
-$("#hideBtn").click(function(){
-$("#box").hide();
+
+    
+    $("#hideBtn").click(function(){
+        $("#box").hide();
+    });
+
+    
+    $("#showBtn").click(function(){
+        $("#box").show();
+    });
+
+    
+    $("#toggleBtn").click(function(){
+        $("#box").toggle();
+    });
+
+    
+    var mode = false;
+
+    $("#toggleMode").click(function(){
+        if(!mode){
+            $("#status").text("Mode: Active");
+            $("#status").css("color", "white");
+            $("body").css("background-color", "black");
+            mode = true;
+        } else {
+            $("#status").text("Mode: Normal");
+            $("#status").css("color", "black");
+            $("body").css("background-color", "white");
+            mode = false;
+        }
+    });
+
+    
+    $("#animateBtn").click(function(){
+        $("#animateBox").stop().animate({
+            left: '250px',
+            height: '150px',
+            width: '150px'
+        });
+    });
+
 });
-$("#showBtn").click(function(){
-$("#box").show();
-});
-$("#toggleBtn").click(function(){
-$("#box").toggle();
-});
-$("#animateBtn").click(function(){
-$("#animateBox").animate({
-left: '250px',
-height: '150px',
-width: '150px'
-});
-});
-});
+
 </script>
+
 </body>
 </html>

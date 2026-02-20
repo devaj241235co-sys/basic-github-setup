@@ -6,7 +6,6 @@
 <style>
 body {
 font-family: Arial;
-transition: 0.3s;
 }
 #box {
 width: 200px;
@@ -36,10 +35,6 @@ margin-top: 20px;
 <button id="showBtn">Show</button>
 <button id="toggleBtn">Toggle</button>
 <hr>
-<h3>jQuery Toggle State</h3>
-<p id="status">Mode: Normal</p>
-<button id="toggleMode">Toggle Mode</button>
-<hr>
 <h3>jQuery Animation</h3>
 <div id="animateBox"></div><br>
 <button id="animateBtn">Animate</button>
@@ -58,22 +53,8 @@ $("#box").show();
 $("#toggleBtn").click(function(){
 $("#box").toggle();
 });
-var mode = false;
-$("#toggleMode").click(function(){
-if(!mode){
-$("#status").text("Mode: Active");
-$("#status").css("color", "white");
-$("body").css("background-color", "black");
-mode = true;
-} else {
-$("#status").text("Mode: Normal");
-$("#status").css("color", "black");
-$("body").css("background-color", "white");
-mode = false;
-}
-});
 $("#animateBtn").click(function(){
-$("#animateBox").stop().animate({
+$("#animateBox").animate({
 left: '250px',
 height: '150px',
 width: '150px'

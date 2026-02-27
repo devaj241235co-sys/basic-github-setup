@@ -1,66 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DOM Manipulation and jQuery</title>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<style>
-body {
-font-family: Arial;
-}
-#box {
-width: 200px;
-height: 100px;
-background-color: lightblue;
-margin-top: 10px;
-padding: 10px;
-}
-#animateBox {
-width: 100px;
-height: 100px;
-background-color: orange;
-position: relative;
-margin-top: 20px;
-}
-</style>
+    <title>DOM Manipulation and jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        #animateBox {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: relative;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
+
 <h2>DOM Manipulation & jQuery Effects</h2>
+
+
 <h3>JavaScript DOM Update</h3>
 <p id="text">Original Text</p>
 <button onclick="changeText()">Change Text</button>
+
 <hr>
+
+
 <h3>jQuery Visibility Effects</h3>
+
 <div id="box">This box will hide/show</div><br>
+
 <button id="hideBtn">Hide</button>
 <button id="showBtn">Show</button>
 <button id="toggleBtn">Toggle</button>
+
 <hr>
+
+
 <h3>jQuery Animation</h3>
+
 <div id="animateBox"></div><br>
 <button id="animateBtn">Animate</button>
+
 <script>
+
+
+
+var originalText = "Original Text";
+var changedText = "My Name is Devaj Mehta";
+var isChanged = false;
+
 function changeText() {
-document.getElementById("text").innerHTML =
-"My Name is Devaj Mehta";
+    var paragraph = document.getElementById("text");
+
+    if (!isChanged) {
+        paragraph.innerHTML = changedText;
+        isChanged = true;
+    } else {
+        paragraph.innerHTML = originalText;
+        isChanged = false;
+    }
 }
+
+
+
 $(document).ready(function(){
-$("#hideBtn").click(function(){
-$("#box").hide();
+
+    // Hide
+    $("#hideBtn").click(function(){
+        $("#box").hide();
+    });
+
+    // Show
+    $("#showBtn").click(function(){
+        $("#box").show();
+    });
+
+    // Toggle
+    $("#toggleBtn").click(function(){
+        $("#box").toggle();
+    });
+
+    // Animation with return
+    var moved = false;
+
+    $("#animateBtn").click(function(){
+
+        if(!moved){
+            $("#animateBox").animate({
+                left: '250px',
+                height: '150px',
+                width: '150px'
+            }, 800);
+            moved = true;
+        } else {
+            $("#animateBox").animate({
+                left: '0px',
+                height: '100px',
+                width: '100px'
+            }, 800);
+            moved = false;
+        }
+
+    });
+
 });
-$("#showBtn").click(function(){
-$("#box").show();
-});
-$("#toggleBtn").click(function(){
-$("#box").toggle();
-});
-$("#animateBtn").click(function(){
-$("#animateBox").animate({
-left: '250px',
-height: '150px',
-width: '150px'
-});
-});
-});
+
 </script>
 </body>
 </html>

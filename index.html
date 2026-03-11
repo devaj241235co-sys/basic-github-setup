@@ -3,33 +3,22 @@
 <head>
 <title>Debounce Example</title>
 </head>
-
 <body>
-
 <h2>Debouncing Example</h2>
-
 <input type="text" id="search" placeholder="Type something...">
-
 <p id="result"></p>
-
 <script>
-
 let timer;
-
 function debounceFunction()
 {
 clearTimeout(timer);
-
 timer = setTimeout(function()
 {
 let text = document.getElementById("search").value;
 document.getElementById("result").innerHTML = "You typed: " + text;
 }, 500);
 }
-
 document.getElementById("search").addEventListener("keyup", debounceFunction);
-
 </script>
-
 </body>
 </html>

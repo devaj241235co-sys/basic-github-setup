@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real-Time Book Search</title>
+<script>
+function searchItem(str)
+{
+str = str.trim();
+if(str.length == 0)
+{
+document.getElementById("result").innerHTML = "Start typing to search...";
+return;
+}
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function()
+{
+if(this.readyState == 4 && this.status == 200)
+{
+document.getElementById("result").innerHTML = this.responseText;
+}
+};
+xmlhttp.open("GET","search.php?q=" + encodeURIComponent(str), true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+<h2>Real-Time Book Search</h2>
+<input type="text"
+placeholder="Search book..."
+onkeyup="searchItem(this.value)">
+<div id="result">Start typing to search...</div>
+</body>
+</html>

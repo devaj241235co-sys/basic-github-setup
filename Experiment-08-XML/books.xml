@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "books.dtd">
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+    <book>
+        <title>Java Programming</title>
+        <author>James Gosling</author>
+        <price>500</price>
+    </book>
+    <book>
+        <title>Python Basics</title>
+        <author>Guido van Rossum</author>
+        <price>400</price>
+    </book>
+    <book>
+        <title>Web Development</title>
+        <author>David Flanagan</author>
+        <price>600</price>
+    </book>
+</books>
